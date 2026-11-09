@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank Transaction System</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Bank Transaction System</h1>
+
+<h2>Transfer Money</h2>
+
+<form th:action="@{/transfer}" th:object="${transferRequest}" method="post">
+
+    <label>From Account:</label>
+    <input type="text" th:field="*{fromAccount}" required>
+
+    <label>To Account:</label>
+    <input type="text" th:field="*{toAccount}" required>
+
+    <label>Amount:</label>
+    <input type="number" step="0.01" th:field="*{amount}" required>
+
+    <label>Simulate Failure:</label>
+    <input type="checkbox" th:field="*{simulateFailure}">
+
+    <button type="submit">Transfer</button>
+</form>
+
+</body>
+</html>
